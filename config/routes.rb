@@ -1,3 +1,13 @@
 Rails.application.routes.draw do
-  root 'welcome#index'
+
+  comfy_route :blog_admin, path: "/admin"
+  comfy_route :blog, path: "/blog"
+  # devise_for :staffs
+  # devise_for :admins
+  # root 'welcome#index'
+
+  comfy_route :cms_admin, path: "/admin"
+  # Ensure that this route is defined last
+  comfy_route :cms, path: "/"
+
 end
