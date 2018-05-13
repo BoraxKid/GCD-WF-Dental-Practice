@@ -67,3 +67,4 @@ gem 'jquery-rails', '~> 4.3', '>= 4.3.3'
 gem 'jquery-datatables', '~> 1.10', '>= 1.10.16'
 gem 'ajax-datatables-rails', '~> 0.4.1'
 gem 'activestorage', '~> 5.2'
+gem 'aws-sdk-s3', '~> 1.10', require: false
