@@ -1,0 +1,8 @@
+.container.col-md-6.col-md-offset-3
+  %h1= "jaaj"
+  %p
+    - label = Comfy::Blog::Post.human_attribute_name(:published_on)
+    - time  = @cms_post.published_at.to_formatted_s(:short)
+    = "#{label}: #{time}"
+
+= @cms_post.content_cache.html_safe
