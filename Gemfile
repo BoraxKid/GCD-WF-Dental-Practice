@@ -57,7 +57,8 @@ ruby '2.4.1'
 
 gem 'bootstrap', '~> 4.1', '>= 4.1.1'
 gem 'devise', '~> 4.4', '>= 4.4.3'
-gem 'comfortable_mexican_sofa', '~> 2.0', '>= 2.0.15'
+# gem 'comfortable_mexican_sofa', '~> 2.0', '>= 2.0.15'
+gem 'comfortable_mexican_sofa', :git => 'git://github.com/BoraxKid/comfortable-mexican-sofa'
 gem "comfy_blog", "~> 2.0.0"
 gem 'will_paginate', '~> 3.1', '>= 3.1.6'
 gem 'will_paginate-bootstrap4', '~> 0.2.2'
