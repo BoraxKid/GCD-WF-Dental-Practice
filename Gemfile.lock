@@ -272,6 +272,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  activestorage (~> 5.2)
   ajax-datatables-rails (~> 0.4.1)
   bootstrap (~> 4.1, >= 4.1.1)
   byebug

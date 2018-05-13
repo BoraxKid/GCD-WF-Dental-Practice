@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   get '/contact', to: 'contacts#new'
   post '/contact', to: 'contacts#create'
   comfy_route :blog_admin, path: "/admin"
-  comfy_route :blog, path: "/blog"
+  comfy_route :blog, path: "/news"
   # devise_for :staffs
   # devise_for :admins
   # root 'welcome#index'

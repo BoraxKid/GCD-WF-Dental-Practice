@@ -1,68 +1,31 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title><%= @cms_page.present? ? @cms_page.label + " - " + @cms_site.label : @cms_site.label %></title>
+<div class="row">
+  <div class="col-md-8">
+    <h1>News</h1>
+    <ul class="list-group">
+      <% @blog_posts.each do |post| %>
 
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <meta name="description" content="<%= cms_fragment_content("meta-description") %>">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
-
-    <%= csrf_meta_tags %>
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
-
-  <body class="bg-light">
-    <%= cms_snippet_content('header').html_safe %>
-    <main role="main">
-      <div class="container">
-        <% flash.each do |message_type, message| %>
-          <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
-        <% end %>
-
-        <div class="row">
-          <div class="col-md-8">
-            <h1>News</h1>
-            <ul class="list-group">
-              <% @blog_posts.each do |post| %>
-                <% blog_post_url = comfy_blog_post_path(@cms_site.path, post.year, post.month, post.slug) %>
-                <a href="<%= comfy_blog_post_path(@cms_site.path, post.year, post.month, post.slug) %>" class="list-group-item list-group-item-action flex-column align-items-start">
-                  <div class="d-flex w-100 justify-content-between">
-                    <%= content_tag(:h5, post.title, class: "mb-1") %>
-                    <%= content_tag(:small, distance_of_time_in_words(post.published_at, Time.now, scope: 'datetime.distance_in_words.short') + " ago") %>
-                  </div>
-                  <% blog_post_content = truncate(strip_tags(post.content_cache), :length => 200, :separator => ' ') %>
-                  <%= content_tag(:small, blog_post_content, class: 'text-muted') %>
-                </a>
-
-
-              <% end %>
-            </ul>
-            <%= will_paginate @blog_posts, list_classes: %w(pagination justify-content-center) %>
+        <% blog_post_url = comfy_blog_post_path(@cms_site.path, post.year, post.month, post.slug) %>
+        <a href="<%= comfy_blog_post_path(@cms_site.path, post.year, post.month, post.slug) %>" class="list-group-item list-group-item-action flex-column align-items-start">
+          <div class="d-flex w-100 justify-content-between">
+            <%= content_tag(:h5, post.title, class: "mb-1") %>
+            <%= content_tag(:small, distance_of_time_in_words(post.published_at, Time.now, scope: 'datetime.distance_in_words.short') + " ago") %>
           </div>
-          <div class="col-md-4">
-            <h3>Archive</h3>
-            <% dates_with_counts = @cms_site.blog_posts.published.group(:year, :month).order(year: :desc, month: :desc).count %>
-            <% dates_with_counts.each do |(year, month), count| %>
-            <li>
-              <%= link_to [I18n.t("date.month_names")[month.to_i], year].join(" "), comfy_blog_posts_of_month_path(@cms_site.url(relative: true), year: year, month: month) %>
-              <%= content_tag(:small, "(#{count})") %>
-            </li>
-            <% end %>
-          </div>
-        </div>
+          <% blog_post_content = truncate(strip_tags(post.content_cache), :length => 200, :separator => ' ') %>
+          <%= content_tag(:small, blog_post_content, class: 'text-muted') %>
+        </a>
 
-      </div>
-    </main>
-
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
-  </body>
-</html>
+      <% end %>
+    </ul>
+    <%= will_paginate @blog_posts, list_classes: %w(pagination justify-content-center) %>
+  </div>
+  <div class="col-md-4">
+    <h3>Archive</h3>
+    <% dates_with_counts = @cms_site.blog_posts.published.group(:year, :month).order(year: :desc, month: :desc).count %>
+    <% dates_with_counts.each do |(year, month), count| %>
+    <li>
+      <%= link_to [I18n.t("date.month_names")[month.to_i], year].join(" "), comfy_blog_posts_of_month_path(@cms_site.url(relative: true), year: year, month: month) %>
+      <%= content_tag(:small, "(#{count})") %>
+    </li>
+    <% end %>
+  </div>
+</div>
