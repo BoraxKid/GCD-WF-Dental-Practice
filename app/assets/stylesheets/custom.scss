@@ -13,6 +13,11 @@ $gray-medium-light: #eaeaea;
 
 /* universal */
 
+.container.col-md-6.col-md-offset-3 {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
 section {
     overflow: auto;
 }
