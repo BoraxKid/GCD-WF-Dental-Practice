@@ -14,6 +14,13 @@ GIT
       rails-i18n (>= 5.0.0)
       sass-rails (>= 5.0.0)
 
+GIT
+  remote: git://github.com/comfy/comfy-blog
+  revision: 2368409d0fcfae706f9e72eea25452c95015d806
+  specs:
+    comfy_blog (2.0.6)
+      comfortable_mexican_sofa (>= 2.0.14)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -105,8 +112,6 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.12.2)
-    comfy_blog (2.0.6)
-      comfortable_mexican_sofa (>= 2.0.14)
     comfy_bootstrap_form (4.0.3)
       rails (>= 5.0.0)
     concurrent-ruby (1.0.5)
@@ -294,7 +299,7 @@ DEPENDENCIES
   capybara (~> 2.13)
   coffee-rails (~> 4.2)
   comfortable_mexican_sofa!
-  comfy_blog (~> 2.0.0)
+  comfy_blog!
   devise (~> 4.4, >= 4.4.3)
   jbuilder (~> 2.5)
   jquery-datatables (~> 1.10, >= 1.10.16)
