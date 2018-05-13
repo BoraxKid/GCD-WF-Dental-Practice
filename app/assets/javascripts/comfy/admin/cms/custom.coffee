@@ -14,7 +14,7 @@ $ ->
       {data: 'patient_id'}
       {data: 'duration'}
       {data: 'fee_paid'}
-      {data: 'actions', orderable: false}
+      {data: 'actions', orderable: false, searchable: false}
     ],
     columnDefs: [
       {
