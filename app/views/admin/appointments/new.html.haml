@@ -1,0 +1,5 @@
+.page-header
+  %h2 New Appointment
+
+= comfy_form_with model: @appointment, url: [:admin, @appointment] do |form|
+  = render form

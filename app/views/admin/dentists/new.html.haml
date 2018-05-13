@@ -1,0 +1,5 @@
+.page-header
+  %h2 New Dentist
+
+= comfy_form_with model: @dentist, url: [:admin, @dentist] do |form|
+  = render form

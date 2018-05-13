@@ -1,0 +1,21 @@
+.page-header
+  = link_to 'New Dentist', new_admin_dentist_path, class: 'btn btn-secondary float-right'
+  %h2= 'Dentists'
+
+= paginate @dentists, theme: 'comfy'
+
+%ul.list
+  - @dentists.each do |dentist|
+    %li
+      .row
+        .col-md-8.item
+          .item-content
+            .item-title
+              = dentist.name
+
+        .col-md-4.d-flex.align-items-center.justify-content-md-end
+          .btn-group.btn-group-sm
+            = link_to 'Edit', edit_admin_dentist_path(dentist), class: 'btn btn-outline-secondary'
+            = link_to 'Delete', admin_dentist_path(dentist), method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-danger'
+
+= paginate @dentists, theme: 'comfy'

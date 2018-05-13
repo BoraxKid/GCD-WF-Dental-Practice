@@ -1,0 +1,15 @@
+.form-group.row
+  %label.col-form-label.col-sm-2.text-sm-right= 'Date and time'
+  .col-sm-10
+    = form.datetime_select :date, {:order => [:day, :month, :year]}, {class: "custom-select custom-select-sm", style: "display: inline-block; width: auto;"}
+//= form.select :dentist, options_from_collection_for_select(@dentists, 'id', 'name', @appointment.dentist_id)
+//= form.select :patient, options_from_collection_for_select(@patients, 'id', 'name', @appointment.patient_id)
+= collection_select(:appointment, :dentist_id, Dentist.all, :id, :name, :prompt => 'Select a dentist')
+= collection_select(:appointment, :patient_id, Patient.all, :id, :name, :prompt => 'Select a patient')
+= form.text_field :duration
+= form.text_field :fee_paid
+= form.text_area :notes
+
+= form.form_actions do
+  = form.submit class: "btn btn-primary"
+  = link_to 'Cancel', admin_appointments_path, class: "btn btn-link"

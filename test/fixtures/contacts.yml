@@ -1,0 +1,4 @@
+default:
+  name: default name
+  email: default email
+  message: default message

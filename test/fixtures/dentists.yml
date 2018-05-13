@@ -1,0 +1,6 @@
+default:
+  name: default name
+  email: default email
+  phone_number: default phone_number
+  dental_number: default dental_number
+  is_active: default is_active

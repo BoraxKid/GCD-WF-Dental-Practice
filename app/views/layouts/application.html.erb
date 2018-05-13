@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= (@cms_page.present? ? @cms_page.label + " - " : (@cms_post.present? ? @cms_post.title + " - " : "")) + @cms_site.label %></title>
+    <title><%= (@cms_page.present? ? @cms_page.label + " - " : (@cms_post.present? ? @cms_post.title + " - " : "")) + (@cms_site.present? ? @cms_site.label : "Dental Practice") %></title>
 
     <!-- Required meta tags -->
     <meta charset="utf-8">

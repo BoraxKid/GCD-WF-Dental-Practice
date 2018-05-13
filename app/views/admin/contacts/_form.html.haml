@@ -1,0 +1,7 @@
+= form.text_field :name
+= form.email_field :email
+= form.text_field :phone_number
+= form.text_area :message
+
+= form.form_actions do
+  = link_to 'Back', admin_contacts_path, class: "btn btn-link"

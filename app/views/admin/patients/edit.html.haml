@@ -1,0 +1,5 @@
+.page-header
+  %h2 Edit Patient
+
+= comfy_form_with model: @patient, url: [:admin, @patient] do |form|
+  = render form

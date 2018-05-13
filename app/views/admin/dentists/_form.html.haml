@@ -1,0 +1,9 @@
+= form.text_field :name
+= form.email_field :email
+= form.text_field :phone_number
+= form.text_field :dental_number
+= form.check_box :is_active
+
+= form.form_actions do
+  = form.submit class: "btn btn-primary"
+  = link_to 'Cancel', admin_dentists_path, class: "btn btn-link"

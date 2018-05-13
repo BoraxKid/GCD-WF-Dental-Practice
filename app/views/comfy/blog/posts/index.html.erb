@@ -29,12 +29,22 @@
         <div class="row">
           <div class="col-md-8">
             <h1>News</h1>
-            <% @blog_posts.each do |post| %>
+            <ul class="list-group">
+              <% @blog_posts.each do |post| %>
+                <% blog_post_url = comfy_blog_post_path(@cms_site.path, post.year, post.month, post.slug) %>
+                <a href="<%= comfy_blog_post_path(@cms_site.path, post.year, post.month, post.slug) %>" class="list-group-item list-group-item-action flex-column align-items-start">
+                  <div class="d-flex w-100 justify-content-between">
+                    <%= content_tag(:h5, post.title, class: "mb-1") %>
+                    <%= content_tag(:small, distance_of_time_in_words(post.published_at, Time.now, scope: 'datetime.distance_in_words.short') + " ago") %>
+                  </div>
+                  <% blog_post_content = truncate(strip_tags(post.content_cache), :length => 200, :separator => ' ') %>
+                  <%= content_tag(:small, blog_post_content, class: 'text-muted') %>
+                </a>
 
-              <h2><%= link_to post.title, comfy_blog_post_path(@cms_site.path, post.year, post.month, post.slug) %></h2>
-              <%= content_tag(:div, post.published_at.to_s(:db), class: "date") %>
-            <% end %>
-            <%= comfy_paginate @blog_posts %>
+
+              <% end %>
+            </ul>
+            <%= will_paginate @blog_posts, list_classes: %w(pagination justify-content-center) %>
           </div>
           <div class="col-md-4">
             <h3>Archive</h3>

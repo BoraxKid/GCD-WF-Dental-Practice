@@ -1,0 +1,20 @@
+.page-header
+  %h2= 'Messages'
+
+= paginate @contacts, theme: 'comfy'
+
+%ul.list
+  - @contacts.each do |contact|
+    %li
+      .row
+        .col-md-8.item
+          .item-content
+            .item-title
+              = content_tag(:p, ('Message from ' + content_tag(:strong, contact.name) + content_tag(:em, ' (' + contact.phone_number + ' ' + contact.email + ')')).html_safe)
+
+        .col-md-4.d-flex.align-items-center.justify-content-md-end
+          .btn-group.btn-group-sm
+            = link_to 'Show', admin_contact_path(contact), method: :get, class: 'btn btn-outline-secondary'
+            = link_to 'Delete', admin_contact_path(contact), method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-danger'
+
+= paginate @contacts, theme: 'comfy'

@@ -1,0 +1,21 @@
+.page-header
+  = link_to 'New Patient', new_admin_patient_path, class: 'btn btn-secondary float-right'
+  %h2= 'Patients'
+
+= paginate @patients, theme: 'comfy'
+
+%ul.list
+  - @patients.each do |patient|
+    %li
+      .row
+        .col-md-8.item
+          .item-content
+            .item-title
+              = patient.name
+
+        .col-md-4.d-flex.align-items-center.justify-content-md-end
+          .btn-group.btn-group-sm
+            = link_to 'Edit', edit_admin_patient_path(patient), class: 'btn btn-outline-secondary'
+            = link_to 'Delete', admin_patient_path(patient), method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-danger'
+
+= paginate @patients, theme: 'comfy'

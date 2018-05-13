@@ -1,0 +1,6 @@
+default:
+  name: default name
+  emai: default emai
+  phone_number: default phone_number
+  allergies: default allergies
+  medical_notes: default medical_notes

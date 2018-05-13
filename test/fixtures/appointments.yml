@@ -1,0 +1,7 @@
+default:
+  date: default date
+  dentist: default dentist
+  patient: default patient
+  duration: default duration
+  fee_paid: default fee_paid
+  notes: default notes

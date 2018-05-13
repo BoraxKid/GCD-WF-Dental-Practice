@@ -1,0 +1,21 @@
+.page-header
+  = link_to 'New Appointment', new_admin_appointment_path, class: 'btn btn-secondary float-right'
+  %h2= 'Appointments'
+
+= paginate @appointments, theme: 'comfy'
+
+%ul.list
+  - @appointments.order(:date).each do |appointment|
+    %li
+      .row
+        .col-md-8.item
+          .item-content
+            .item-title
+              = appointment.date
+
+        .col-md-4.d-flex.align-items-center.justify-content-md-end
+          .btn-group.btn-group-sm
+            = link_to 'Edit', edit_admin_appointment_path(appointment), class: 'btn btn-outline-secondary'
+            = link_to 'Delete', admin_appointment_path(appointment), method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-danger'
+
+= paginate @appointments, theme: 'comfy'
