@@ -11,6 +11,7 @@
       <th>Patient</th>
       <th>Duration</th>
       <th>Fee paid</th>
+      <th>Actions</th>
     </tr>
   </thead>
   <tbody></tbody>
@@ -21,30 +22,7 @@
       <th></th>
       <th></th>
       <th></th>
+      <th></th>
     </tr>
   </tfoot>
 </table>
-
-<%= paginate @appointments, theme: 'comfy' %>
-<ul class="list">
-  <% @appointments.order(:date).each do |appointment| %>
-    <li>
-      <div class="row">
-        <div class="col-md-8 item">
-          <div class="item-content">
-            <div class="item-title">
-              <%= appointment.date %>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4 d-flex align-items-center justify-content-md-end">
-          <div class="btn-group btn-group-sm">
-            <%= link_to 'Edit', edit_admin_appointment_path(appointment), class: 'btn btn-outline-secondary' %>
-            <%= link_to 'Delete', admin_appointment_path(appointment), method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-danger' %>
-          </div>
-        </div>
-      </div>
-    </li>
-  <% end %>
-</ul>
-<%= paginate @appointments, theme: 'comfy' %>
