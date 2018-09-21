@@ -1,24 +1,12 @@
-# README
+# Dental Practice
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Dental practice website made for the Web Frameworks course of Griffith College Dublin in May 2018.
 
-Things you may want to cover:
+Made with Ruby on Rails. Uses [Comfy](https://github.com/BoraxKid/comfortable-mexican-sofa) for public pages and admin dashboard and [Bootstrap 4](https://getbootstrap.com/).
 
-* Ruby version
+Worked with an AWS S3 Bucket and was deployed on Heroku.
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Ruby 2.4.1
+* Ruby on Rails 5.2
+* Bootstrap 4.1
+* The rest of the Gems can be found in the [Gemfile](/Gemfile)
